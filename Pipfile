@@ -11,6 +11,7 @@ gunicorn = "*"
 flake8 = "*"
 pytest = "*"
 pytest-cov = "*"
+sync = "*"
 
 [requires]
 python_version = "3.8"
