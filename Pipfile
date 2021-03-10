@@ -13,6 +13,7 @@ pytest = "*"
 pytest-cov = "*"
 sync = "*"
 pytest-django = "*"
+codecov = "*"
 
 [requires]
 python_version = "3.8"
