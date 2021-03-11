@@ -9,6 +9,7 @@ install:
 script:
   - pipenv run flake8 .
   - pipenv run pytest --cov=pypro
+  - cp contrib/env-sample .env
 
 after_success:
   - pipenv run codecov
