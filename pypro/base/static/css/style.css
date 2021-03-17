@@ -1,1 +1,6 @@
-# Empty CSS file for your own CSS
+.main-footer{
+    background-color: rgba(96,134,161,0.73);
+}
+.rights{
+    background-color: rgba(72,160,161,0.73);
+}
