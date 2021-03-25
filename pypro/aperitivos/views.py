@@ -8,4 +8,3 @@ def video(request, slug):
     }
     video = videos[slug]
     return render(request, 'aperitivos/video.html', context={'video': video})
-# pode apagar, foi so pra passar
