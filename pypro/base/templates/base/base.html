@@ -37,29 +37,7 @@
 
 {% block body %}{% endblock body %}
 
-<footer class="main-footer mt-5 pt-4 pb-4 text-light">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h3>Entre em Contato</h3>
-                <address>
-                    +55 81 996-763-485
-                    <br/>
-                    <a href="maito:gabrielferreira_1@hotmail.com" class="text-light">gabrielferreira_1@hotmail.com</a>
-                </address>
-            </div>
-        </div>
-    </div>
-    <div class="rights">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    {% now 'Y' %} Python Pro GG. Todos os direitos reservados
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+{% include 'base/footer.html' with contato_email='gabrielferreira_1@hotmail.com' only %}
 
 </body>
 </html>
