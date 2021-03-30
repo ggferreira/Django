@@ -1,11 +1,18 @@
 import pytest
 from django.urls import reverse
+from model_mommy import mommy
 
+from pypro.aperitivos.models import Video
 from pypro.django_assertions import assert_contains
 
 
 @pytest.fixture
-def resp(client):
+def videos(db):
+    return mommy.make(Video, 3)
+
+
+@pytest.fixture
+def resp(client, videos):
     return client.get(reverse('aperitivos:indice'))
 
 
@@ -13,23 +20,11 @@ def test_status_code(resp):
     assert resp.status_code == 200
 
 
-@pytest.mark.parametrize(
-    'titulo',
-    [
-        'Abertura do Curso',
-        'Video Aperitivo: Motivação',
-    ]
-)
-def test_title_video(resp, titulo):
-    assert_contains(resp, titulo)
+def test_title_video(resp, videos):
+    for video in videos:
+        assert_contains(resp, video.titulo)
 
 
-@pytest.mark.parametrize(
-    'slug',
-    [
-        'abertura',
-        'motivacao',
-    ]
-)
-def test_link_video(resp, slug):
-    assert_contains(resp, reverse('aperitivos:video', args=(slug,)))
+def test_link_video(resp, videos):
+    for video in videos:
+        assert_contains(resp, reverse('aperitivos:video', args=(video.slug,)))
