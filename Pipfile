@@ -21,6 +21,7 @@ pytest-cov = "*"
 sync = "*"
 pytest-django = "*"
 codecov = "*"
+model-mommy = "*"
 
 [requires]
 python_version = "3.8"
