@@ -33,6 +33,7 @@ def test_vimeo_id(resp, aula: Aula):
 def test_breadcrumb(resp, modulo: Modulo):
     assert_contains(resp, f'<li class="breadcrumb-item"><a href="{modulo.get_absolute_url()}">{modulo.titulo}</a></li>')
 
+
 @pytest.fixture
 def resp_sem_usuario(client, aula):
     resp = client.get(reverse('modulos:aula', kwargs={'slug': aula.slug}))
